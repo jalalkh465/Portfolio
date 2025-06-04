@@ -133,24 +133,25 @@ contactForm.addEventListener('submit', (e) => {
 downloadResumeBtn.addEventListener('click', (e) => {
     e.preventDefault();
     
-    // Resume download functionality
+    // Resume download functionality - use YOUR actual filename
+    const fileName = 'Jalal_resume.pdf';
     const link = document.createElement('a');
-    link.href = 'Jalal_Resume.pdf'; // Add your actual resume PDF file here
-    link.download = 'Jalal_Resume.pdf';
+    link.href = fileName; // Use your actual file name
+    link.download = fileName; // Use your actual file name
     
-    // Check if resume file exists, otherwise show instructions
-    fetch('resume.pdf')
+    // Check if resume file exists using YOUR filename
+    fetch(fileName)
         .then(response => {
             if (response.ok) {
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
             } else {
-                alert('Please add your resume.pdf file to the project folder. See PERSONALIZATION_GUIDE.md for instructions.');
+                alert(`Please make sure ${fileName} exists in the project root folder.`);
             }
         })
         .catch(() => {
-            alert('Please add your resume.pdf file to the project folder. See PERSONALIZATION_GUIDE.md for instructions.');
+            alert(`Failed to find ${fileName}. Please check it exists in the project root.`);
         });
 });
 
