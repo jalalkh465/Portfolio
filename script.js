@@ -135,8 +135,8 @@ downloadResumeBtn.addEventListener('click', (e) => {
     
     // Resume download functionality
     const link = document.createElement('a');
-    link.href = 'Jalal Resume.pdf'; // Add your actual resume PDF file here
-    link.download = 'Resume_ML_Engineer.pdf';
+    link.href = 'Jalal_Resume.pdf'; // Add your actual resume PDF file here
+    link.download = 'Jalal_Resume.pdf';
     
     // Check if resume file exists, otherwise show instructions
     fetch('resume.pdf')
